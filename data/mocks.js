@@ -6,6 +6,10 @@ var googleMapsClient = require('@google/maps').createClient({
 
 var graph = require('fbgraph');
 
+var julia = true;
+var lena = true;
+var marie = true;
+
 graph.setAppSecret('21052e82f0178813dec2c37538a85ba5');
 
 import {
@@ -17,6 +21,14 @@ import {
 import { MockList } from 'graphql-tools';
 
 var users = [
+  {
+    "id": 0,
+    "gender": "male",
+    "name": "Caner",
+    "age": 24,
+    "description": "Jurastudent - ich suche meine Kampusfreundin",
+    "pictures": [{ "url": "assets/profile.jpg" }]
+  },
   {
     "id": 0,
     "gender": "female",
@@ -92,16 +104,16 @@ var users = [
   {
     "id": 9,
     "gender": "female",
-    "name": "Klaudia",
-    "age": 32,
+    "name": "Julia",
+    "age": 22,
     "description": "Dolore anim aliquip minim aliquip. Quis voluptate excepteur aliqua deserunt sunt nulla amet consectetur elit cupidatat amet esse laborum. Magna dolore excepteur fugiat laboris incididunt deserunt aliqua. Sint cillum Lorem proident proident officia duis do ex quis eu mollit.",
-    "pictures": [{ "url": "https://randomuser.me/api/portraits/women/9.jpg" }]
+    "pictures": [{ "url": "http://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" }]
   },
   {
     "id": 10,
     "gender": "female",
     "name": "Nicole",
-    "age": 27,
+    "age": 23,
     "description": "Dolore fugiat ut ut dolore in laboris velit. Commodo consectetur ullamco laboris anim reprehenderit voluptate quis magna non fugiat proident voluptate eu. Ipsum do ipsum in cillum commodo irure excepteur aliqua sunt esse labore cillum commodo.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/10.jpg" }]
   },
@@ -263,7 +275,7 @@ var users = [
     "name": "Lena",
     "age": 28,
     "description": "Culpa veniam amet incididunt adipisicing sint aliqua exercitation. Elit consectetur sit ullamco voluptate esse nisi anim dolor reprehenderit ut commodo quis. Fugiat qui veniam culpa elit ipsum reprehenderit. Sint labore occaecat sit reprehenderit minim dolore reprehenderit aute. Lorem consectetur sunt Lorem mollit dolore. Ut mollit ex do elit dolor do duis voluptate Lorem dolore.",
-    "pictures": [{ "url": "https://randomuser.me/api/portraits/women/30.jpg" }]
+    "pictures": [{ "url": "http://1.bp.blogspot.com/_AaNmlEmRD9Y/TMAglY4KJZI/AAAAAAAAAJg/-IX17TLCQN8/s1600/Petra+Silander+02.jpg" }]
   },
   {
     "id": 31,
@@ -356,8 +368,8 @@ var users = [
   {
     "id": 42,
     "gender": "female",
-    "name": "Jessika",
-    "age": 34,
+    "name": "Jonghyun",
+    "age": 26,
     "description": "Id laboris cillum magna excepteur cupidatat ex sint veniam. Aute excepteur incididunt tempor cupidatat duis commodo qui sint occaecat cillum ad culpa. Cupidatat sit nostrud aute et cupidatat culpa nisi consectetur. Esse deserunt quis exercitation sit sint laborum reprehenderit non. Aute deserunt minim elit fugiat velit in in velit tempor mollit. Exercitation dolor amet sint dolore dolore anim nostrud Lorem incididunt reprehenderit ea proident veniam Lorem.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/42.jpg" }]
   },
@@ -373,7 +385,7 @@ var users = [
     "id": 44,
     "gender": "female",
     "name": "Kristin",
-    "age": 30,
+    "age": 25,
     "description": "Tempor consectetur id quis anim non aliquip eu sit et. Id proident amet consectetur consequat Lorem adipisicing est laboris in consectetur anim nisi. Reprehenderit laboris eiusmod ipsum consequat deserunt. Sunt nostrud minim cupidatat aliquip commodo duis voluptate est duis Lorem sint occaecat est. Incididunt veniam proident sint et pariatur culpa officia.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/44.jpg" }]
   },
@@ -397,7 +409,7 @@ var users = [
     "id": 47,
     "gender": "female",
     "name": "Anne",
-    "age": 18,
+    "age": 27,
     "description": "Ex tempor sint nisi id. Magna excepteur et ad deserunt nisi voluptate culpa ea in est consectetur. Dolor deserunt mollit laborum anim proident consequat eu ullamco adipisicing aliqua ullamco aliquip. Officia ut cillum incididunt cupidatat dolor commodo nulla aliqua eu aliqua amet consectetur et elit. Eiusmod ad sit sit quis sit nulla quis dolore laborum eu esse sit. Commodo mollit cillum veniam excepteur sit sint aliqua ullamco non. Proident culpa ea irure officia in elit eu.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/47.jpg" }]
   },
@@ -548,7 +560,7 @@ var users = [
   {
     "id": 66,
     "gender": "female",
-    "name": "Ute",
+    "name": "Diana",
     "age": 19,
     "description": "Eu duis veniam ipsum nulla ullamco. Eu ad ad mollit adipisicing occaecat aliqua dolore voluptate. Velit ullamco ea ex pariatur culpa do non. Ipsum nisi magna laborum reprehenderit. Duis aute do deserunt adipisicing ea pariatur ad aliquip in laborum in incididunt ex.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/66.jpg" }]
@@ -700,8 +712,8 @@ var users = [
   {
     "id": 85,
     "gender": "female",
-    "name": "Franziska",
-    "age": 19,
+    "name": "Shenmi",
+    "age": 26,
     "description": "Commodo ea Lorem qui pariatur officia sunt nulla culpa labore aliquip esse. Reprehenderit sunt fugiat veniam deserunt ad laboris nulla in mollit nostrud cillum dolor magna. Pariatur mollit nisi ad non et commodo excepteur esse dolor. Consequat commodo ullamco ullamco adipisicing exercitation et ullamco laboris reprehenderit. Dolore enim cupidatat velit labore culpa enim ipsum quis est et. Labore ipsum non nulla non anim consectetur qui nostrud proident ex.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/85.jpg" }]
   },
@@ -756,21 +768,13 @@ var users = [
   {
     "id": 92,
     "gender": "female",
-    "name": "Christina",
-    "age": 26,
-    "description": "Labore officia ipsum irure sint consequat. Culpa aliqua laboris Lorem do id magna ullamco nulla consectetur. Sunt commodo reprehenderit elit ex ut enim minim non reprehenderit. Fugiat velit do elit ut labore aliqua occaecat officia non. Veniam qui fugiat ex consequat cupidatat ut dolore id incididunt nisi est. Enim mollit nisi velit eu exercitation eiusmod aliqua minim nostrud.",
-    "pictures": [{ "url": "https://randomuser.me/api/portraits/women/92.jpg" }]
-  },
-  {
-    "id": 93,
-    "gender": "female",
     "name": "Kristin",
     "age": 23,
     "description": "Commodo voluptate laborum tempor mollit anim. Deserunt minim deserunt nostrud incididunt laborum esse consequat sit. Exercitation exercitation excepteur labore non ut.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/93.jpg" }]
   },
   {
-    "id": 94,
+    "id": 93,
     "gender": "female",
     "name": "Lisa",
     "age": 32,
@@ -778,7 +782,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/94.jpg" }]
   },
   {
-    "id": 95,
+    "id": 94,
     "gender": "female",
     "name": "Sandra",
     "age": 32,
@@ -786,7 +790,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/95.jpg" }]
   },
   {
-    "id": 96,
+    "id": 95,
     "gender": "female",
     "name": "Christina",
     "age": 18,
@@ -794,7 +798,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/96.jpg" }]
   },
   {
-    "id": 97,
+    "id": 96,
     "gender": "female",
     "name": "Sophie",
     "age": 34,
@@ -802,7 +806,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/97.jpg" }]
   },
   {
-    "id": 98,
+    "id": 97,
     "gender": "female",
     "name": "Julia",
     "age": 33,
@@ -810,7 +814,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/98.jpg" }]
   },
   {
-    "id": 99,
+    "id": 98,
     "gender": "female",
     "name": "Sabine",
     "age": 28,
@@ -818,7 +822,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/women/99.jpg" }]
   },
   {
-    "id": 100,
+    "id": 99,
     "gender": "male",
     "name": "Tobias",
     "age": 20,
@@ -826,7 +830,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/44.jpg" }]
   },
   {
-    "id": 101,
+    "id": 100,
     "gender": "male",
     "name": "Max",
     "age": 24,
@@ -834,7 +838,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/0.jpg" }]
   },
   {
-    "id": 102,
+    "id": 101,
     "gender": "male",
     "name": "Swen",
     "age": 18,
@@ -842,7 +846,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/1.jpg" }]
   },
   {
-    "id": 103,
+    "id": 102,
     "gender": "male",
     "name": "Frank",
     "age": 29,
@@ -850,7 +854,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/2.jpg" }]
   },
   {
-    "id": 104,
+    "id": 103,
     "gender": "male",
     "name": "Marco",
     "age": 25,
@@ -858,7 +862,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/3.jpg" }]
   },
   {
-    "id": 105,
+    "id": 104,
     "gender": "male",
     "name": "Sven",
     "age": 19,
@@ -866,7 +870,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/4.jpg" }]
   },
   {
-    "id": 106,
+    "id": 105,
     "gender": "male",
     "name": "Uwe",
     "age": 30,
@@ -874,7 +878,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/5.jpg" }]
   },
   {
-    "id": 107,
+    "id": 106,
     "gender": "male",
     "name": "Maik",
     "age": 29,
@@ -882,7 +886,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/6.jpg" }]
   },
   {
-    "id": 108,
+    "id": 107,
     "gender": "male",
     "name": "Mike",
     "age": 31,
@@ -890,7 +894,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/7.jpg" }]
   },
   {
-    "id": 109,
+    "id": 108,
     "gender": "male",
     "name": "Eric",
     "age": 33,
@@ -898,7 +902,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/8.jpg" }]
   },
   {
-    "id": 110,
+    "id": 109,
     "gender": "male",
     "name": "Phillipp",
     "age": 24,
@@ -906,7 +910,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/9.jpg" }]
   },
   {
-    "id": 111,
+    "id": 110,
     "gender": "male",
     "name": "Marcel",
     "age": 29,
@@ -914,7 +918,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/10.jpg" }]
   },
   {
-    "id": 112,
+    "id": 111,
     "gender": "male",
     "name": "Erik",
     "age": 26,
@@ -922,15 +926,15 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/11.jpg" }]
   },
   {
-    "id": 113,
+    "id": 112,
     "gender": "male",
-    "name": "Ralph",
-    "age": 29,
+    "name": "Murat",
+    "age": 24,
     "description": "Tempor eiusmod ut ad sint velit ipsum consectetur Lorem laborum laboris labore deserunt. Esse eu est enim enim sunt. Nostrud sint laboris irure ex sint non eu. Elit laborum pariatur tempor nostrud laborum nulla Lorem ex in. Excepteur aliqua consequat nulla aute elit deserunt ad ex ea. Magna anim ipsum aliquip aliqua fugiat nostrud consequat aliqua Lorem do eu est sit.",
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/12.jpg" }]
   },
   {
-    "id": 114,
+    "id": 113,
     "gender": "male",
     "name": "Peter",
     "age": 25,
@@ -938,7 +942,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/45.jpg" }]
   },
   {
-    "id": 115,
+    "id": 114,
     "gender": "male",
     "name": "Ralf",
     "age": 34,
@@ -946,7 +950,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/14.jpg" }]
   },
   {
-    "id": 116,
+    "id": 115,
     "gender": "male",
     "name": "Sebastian",
     "age": 23,
@@ -954,7 +958,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/15.jpg" }]
   },
   {
-    "id": 117,
+    "id": 116,
     "gender": "male",
     "name": "Robert",
     "age": 28,
@@ -962,7 +966,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/16.jpg" }]
   },
   {
-    "id": 118,
+    "id": 117,
     "gender": "male",
     "name": "Andreas",
     "age": 29,
@@ -970,7 +974,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/17.jpg" }]
   },
   {
-    "id": 119,
+    "id": 118,
     "gender": "male",
     "name": "Sebastian",
     "age": 22,
@@ -978,7 +982,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/18.jpg" }]
   },
   {
-    "id": 120,
+    "id": 119,
     "gender": "male",
     "name": "Phillipp",
     "age": 35,
@@ -986,7 +990,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/19.jpg" }]
   },
   {
-    "id": 121,
+    "id": 120,
     "gender": "male",
     "name": "Florian",
     "age": 35,
@@ -994,15 +998,15 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/20.jpg" }]
   },
   {
-    "id": 122,
-    "gender": "male",
-    "name": "Sven",
+    "id": 121,
+    "gender": "female",
+    "name": "Marie",
     "age": 34,
     "description": "Do ea sit mollit ipsum ea sunt quis sunt nisi excepteur. Reprehenderit proident consectetur quis nisi ex amet exercitation fugiat consectetur. Esse Lorem adipisicing veniam aliqua duis minim consequat cupidatat consectetur ad ullamco voluptate qui qui. Eiusmod veniam voluptate eu adipisicing minim aute adipisicing consectetur enim. Minim adipisicing esse labore culpa reprehenderit. Aute aliqua eu esse sit sit cillum non aute laboris enim incididunt tempor exercitation.",
-    "pictures": [{ "url": "https://randomuser.me/api/portraits/men/21.jpg" }]
+    "pictures": [{ "url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Austrian_Olympic_Team_2012_c_Lisa_Zaiser.jpg" }]
   },
   {
-    "id": 123,
+    "id": 122,
     "gender": "male",
     "name": "Ulrich",
     "age": 18,
@@ -1010,7 +1014,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/22.jpg" }]
   },
   {
-    "id": 124,
+    "id": 123,
     "gender": "male",
     "name": "Erik",
     "age": 33,
@@ -1018,7 +1022,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/23.jpg" }]
   },
   {
-    "id": 125,
+    "id": 124,
     "gender": "male",
     "name": "Tim",
     "age": 27,
@@ -1026,7 +1030,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/24.jpg" }]
   },
   {
-    "id": 126,
+    "id": 125,
     "gender": "male",
     "name": "Stefan",
     "age": 30,
@@ -1034,7 +1038,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/25.jpg" }]
   },
   {
-    "id": 127,
+    "id": 126,
     "gender": "male",
     "name": "Wolfgang",
     "age": 30,
@@ -1042,7 +1046,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/26.jpg" }]
   },
   {
-    "id": 128,
+    "id": 127,
     "gender": "male",
     "name": "Jan",
     "age": 28,
@@ -1050,7 +1054,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/27.jpg" }]
   },
   {
-    "id": 129,
+    "id": 128,
     "gender": "male",
     "name": "Andreas",
     "age": 35,
@@ -1058,7 +1062,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/28.jpg" }]
   },
   {
-    "id": 130,
+    "id": 129,
     "gender": "male",
     "name": "Mathias",
     "age": 35,
@@ -1066,7 +1070,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/29.jpg" }]
   },
   {
-    "id": 131,
+    "id": 130,
     "gender": "male",
     "name": "Daniel",
     "age": 20,
@@ -1074,7 +1078,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/30.jpg" }]
   },
   {
-    "id": 132,
+    "id": 131,
     "gender": "male",
     "name": "Stefan",
     "age": 24,
@@ -1082,7 +1086,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/31.jpg" }]
   },
   {
-    "id": 133,
+    "id": 132,
     "gender": "male",
     "name": "Philipp",
     "age": 25,
@@ -1090,7 +1094,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/32.jpg" }]
   },
   {
-    "id": 134,
+    "id": 133,
     "gender": "male",
     "name": "Thomas",
     "age": 27,
@@ -1098,7 +1102,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/33.jpg" }]
   },
   {
-    "id": 135,
+    "id": 134,
     "gender": "male",
     "name": "Kristian",
     "age": 21,
@@ -1106,7 +1110,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/34.jpg" }]
   },
   {
-    "id": 136,
+    "id": 135,
     "gender": "male",
     "name": "David",
     "age": 28,
@@ -1114,7 +1118,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/35.jpg" }]
   },
   {
-    "id": 137,
+    "id": 136,
     "gender": "male",
     "name": "Mathias",
     "age": 30,
@@ -1122,7 +1126,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/36.jpg" }]
   },
   {
-    "id": 138,
+    "id": 137,
     "gender": "male",
     "name": "Daniel",
     "age": 27,
@@ -1130,7 +1134,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/37.jpg" }]
   },
   {
-    "id": 139,
+    "id": 138,
     "gender": "male",
     "name": "Ulrich",
     "age": 23,
@@ -1138,7 +1142,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/38.jpg" }]
   },
   {
-    "id": 140,
+    "id": 139,
     "gender": "male",
     "name": "Peter",
     "age": 21,
@@ -1146,7 +1150,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/39.jpg" }]
   },
   {
-    "id": 141,
+    "id": 140,
     "gender": "male",
     "name": "Felix",
     "age": 33,
@@ -1154,7 +1158,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/40.jpg" }]
   },
   {
-    "id": 142,
+    "id": 141,
     "gender": "male",
     "name": "Max",
     "age": 18,
@@ -1162,7 +1166,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/41.jpg" }]
   },
   {
-    "id": 143,
+    "id": 142,
     "gender": "male",
     "name": "Uwe",
     "age": 20,
@@ -1170,7 +1174,7 @@ var users = [
     "pictures": [{ "url": "https://randomuser.me/api/portraits/men/42.jpg" }]
   },
   {
-    "id": 144,
+    "id": 143,
     "gender": "male",
     "name": "Thomas",
     "age": 20,
@@ -1214,19 +1218,35 @@ const mocks = {
       return { id: args.id }
     },
     location: (root, args, context) => {
-      return googleMapsClient.place({ placeid: args.googlePlaceId, language: "de_DE" }).asPromise()
-        .then(response => {
-          return {
-            id: args.id,
-            googlePlaceId: response.json.result.place_id,
-            name: response.json.result.name,
-            description: response.json.result.formatted_address,
-            pictures: getPhotos(response.json.result.photos),
-            lat: response.json.result.geometry.location.lat,
-            lng: response.json.result.geometry.location.lng,
-            visitors: () => new MockList([0, 30])
-          };
-        });
+      if (!args.googlePlaceId || args.googlePlaceId == "0" || args.googlePlaceId == 0) {
+        return {
+          id: 0,
+          googlePlaceId: "0",
+          name: "In deiner Nähe",
+          pictures: [],
+          visitors: () => new MockList([3, 30])
+        }
+      }
+      else {
+        if (args.googlePlaceId == "ChIJ-RAVYVVQqEcRPZ3e-XXyPbg") julia = false; // Monkey Bar
+        else if (args.googlePlaceId == "ChIJm-D-mf9QqEcRApuySRsj4BQ") lena = false; // L'Osteria
+        else if (args.googlePlaceId == "ChIJ-RAVYVVQqEcRIfxE6EjRZ38") marie = false; // NENI
+        
+        return googleMapsClient.place({ placeid: args.googlePlaceId, language: "de_DE" }).asPromise()
+          .then(response => {
+            console.log("RESULT", response.json.result);
+            return {
+              id: args.id,
+              googlePlaceId: response.json.result.place_id,
+              name: response.json.result.name,
+              description: response.json.result.formatted_address,
+              pictures: getPhotos(response.json.result.photos),
+              lat: response.json.result.geometry.location.lat,
+              lng: response.json.result.geometry.location.lng,
+              visitors: () => new MockList([3, 30])
+            };
+          });
+      }
     }
   }),
   Chat: (rootCHAT, args) => {
@@ -1249,7 +1269,8 @@ const mocks = {
               description: () => users[senderID].description,
               age: () => users[senderID].age,
               chats: () => new MockList([2,14]),
-              pictures: () => users[senderID].pictures
+              pictures: () => users[senderID].pictures,
+              gender: () => users[senderID].gender
             }
           }
         }
@@ -1261,6 +1282,18 @@ const mocks = {
 
     if (args.id) {
       var id = args.id;
+    }
+    else if (!julia) {
+      var id = 10;
+      julia = true;
+    }
+    else if (!lena) {
+      var id = 31;
+      lena = true;
+    }
+    else if (!marie) {
+      var id = 122;
+      marie = true;
     }
     else {
       var id = casual.integer(1, 144);
@@ -1274,7 +1307,8 @@ const mocks = {
       description: () => users[id].description,
       age: () => users[id].age,
       chats: () => new MockList([2,14]),
-      pictures: () => users[id].pictures
+      pictures: () => users[id].pictures,
+      gender: () => users[id].gender
     }
   },
   Message: (root, args) => {
@@ -1298,6 +1332,8 @@ const mocks = {
 export default mocks;
 
 function getPhotos(a) {
+  if (!a) return [];
+
   var index;
   var pictures = [];
   for (index = 0; index < a.length; ++index) {

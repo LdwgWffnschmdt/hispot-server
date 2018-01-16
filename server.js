@@ -49,26 +49,22 @@ const GRAPHQL_PORT = 3000;
 
 const graphQLServer = express();
 
-//FIXES CORS ERROR
-var whitelist = [
-    'http://localhost:8100',
-    'http://localhost:8101',
-    'http://hispot.camdvr.org:8100',
-];
-var corsOptions = {
-    origin: function(origin, callback){
-        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-        callback(null, originIsWhitelisted);
-    },
-    credentials: true
-};
-graphQLServer.use(cors(corsOptions));
+// //FIXES CORS ERROR
+// var whitelist = [
+//     'http://localhost:8100',
+//     'http://localhost:8101',
+//     'http://hispot.camdvr.org:8100',
+// ];
+// var corsOptions = {
+//     origin: function(origin, callback){
+//         var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+//         callback(null, originIsWhitelisted);
+//     },
+//     credentials: true
+// };
+// graphQLServer.use(cors(corsOptions));
 // -->
-// graphQLServer.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-// });
+graphQLServer.use(cors());
 
 
 // Use application-level middleware for common functionality, including

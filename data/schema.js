@@ -33,6 +33,7 @@ type User {
   location: Location
   locationTime: DateTime
   chats: [Chat]
+  gender: String
 }
 
 type Chat {
